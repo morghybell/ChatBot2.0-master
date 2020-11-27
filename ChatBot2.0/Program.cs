@@ -42,7 +42,7 @@ namespace ChatBot2._0
             string receivedString, sendString;
 
             // crea il messaggio
-            sendString = "Benvenuto client";
+            sendString = "Benvenuto client!";
              
             while (true)
             {
