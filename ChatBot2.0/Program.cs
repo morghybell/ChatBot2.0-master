@@ -59,24 +59,7 @@ namespace ChatBot2._0
                         break;
                     }
 
-                    switch (receivedString.ToLower())
-                    {
-                        case "ciao":
-                            sendString = "Salve";
-                            break;
-
-                        case "come stai?":
-                            sendString = "Bene";
-                            break;
-
-                        case "che fai?":
-                            sendString = "Niente";
-                            break;
-
-                        default:
-                            sendString = "Non importa";
-                            break;
-                    }
+                    sendString = Answer(receivedBytes, sendedBytes, receivedString, sendString);
 
                     // lo converto in byte
                     sendBuff = Encoding.ASCII.GetBytes(sendString);
@@ -94,6 +77,65 @@ namespace ChatBot2._0
 
             // Termina il programma
             Console.ReadLine();
+        }
+
+        static string Answer(int receivedBytes, int sendedBytes, string receivedString, string sendString)
+        {
+            Random rnd = new Random();
+            int n = rnd.Next(10) % 2;
+
+            switch (receivedString.ToLower())
+            {
+                case "ciao":
+                    if (n == 0)
+                    {
+                        sendString = "Salve";
+                    }
+                    else
+                    {
+                        sendString = "Buon Pomeriggio";
+                    }
+                    break;
+
+                case "come stai?":
+                    if (n == 0)
+                    {
+                        sendString = "Bene";
+                    }
+                    else
+                    {
+                        sendString = "Male";
+                    }
+                    break;
+
+                case "che fai?":
+                    if (n == 0)
+                    {
+                        sendString = "Niente";
+                    }
+                    else
+                    {
+                        sendString = "Studio";
+                    }
+                    break;
+
+                case "risolto un bag":
+                    if (n == 0)
+                    {
+                        sendString = "si creano mille bag nuovi";
+                    }
+                    else
+                    {
+                        sendString = "si creano duemila bag nuovi";
+                    }
+                    break;
+
+                default:
+                    sendString = "Ripeti per favore";
+                    break;
+            };
+
+            return sendString;
         }
     }
 }
