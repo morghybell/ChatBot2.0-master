@@ -119,14 +119,14 @@ namespace ChatBot2._0
                     }
                     break;
 
-                case "risolto un bag":
+                case "risolto un bug":
                     if (n == 0)
                     {
-                        sendString = "si creano mille bag nuovi";
+                        sendString = "si creano mille bug nuovi";
                     }
                     else
                     {
-                        sendString = "si creano duemila bag nuovi";
+                        sendString = "si creano duemila bug nuovi";
                     }
                     break;
 
